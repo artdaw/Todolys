@@ -14,19 +14,19 @@
 </div>
 <% end %>
 <%= form_for @user_session, :as => :user_session, :url => { :action => "create" } do |form| %>
-<p class="grid_1 prefix_2">  
+<p class="grid_1 prefix_2 omega">
 	<%= form.label :username, "Username:" %>  
 </p>
 <p class="grid_3 suffix_6">
 	<%= form.text_field :username %>  
 </p>  
-<p class="grid_1 prefix_2">   
+<p class="grid_1 prefix_2 omega">   
 	<%= form.label :password, "Password:" %>  
 </p> 
 <p class="grid_3 suffix_6">	
 	<%= form.password_field :password %>  
 </p>  
-<p class="grid_3 prefix_3 suffix_6">
+<p class="grid_3 prefix_3 suffix_6 alpha">
 	<%= form.submit "Sign in" %>  
 </p>  
 
