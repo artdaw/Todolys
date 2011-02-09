@@ -1,15 +1,16 @@
 Todolys::Application.routes.draw do
-  
 
   resources :users
   resources :user_sessions
-  
+
+  resources :todos
+
   resources :lists do
     resources :todos
   end
-  resources :todos
 
-  match 'login' => 'user_sessions#new'  
+
+  match 'login' => 'user_sessions#new'
   match 'logout' => 'user_sessions#destroy'
 
   get "home/index"
