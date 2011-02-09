@@ -1,0 +1,105 @@
+@font-face{
+	font-family: PT_Sans;
+	src: url('PT_Sans.eot');
+	src: local(PT_Sans), url('PT_Sans.ttf') format('opentype');
+}
+
+@font-face{
+	font-family: PT_Sans-Bold;
+	src: url('PT_Sans-Bold.eot');
+	src: local(PT_Sans-Bold), url('PT_Sans-Bold.ttf') format('opentype');
+}
+
+@font-face{
+	font-family: PT_Sans-Italic;
+	src: url('PT_Sans-Italic.eot');
+	src: local(PT_Sans-Italic), url('PT_Sans-Italic.ttf') format('opentype');
+}
+
+body{
+	font-family:PT_Sans, 'Lucida Grande', verdana, arial, helvetica, sans-serif;
+	font-size: 14px;
+	color: #333333;
+}
+
+pre {
+	background-color: #eee;
+	padding: 10px;
+	font-size: 11px;
+}
+
+a { 
+	color: #0088CC; 
+}
+
+a:hover { 
+	color: #fff; 
+	background-color:#0088CC; 
+	text-decoration: none;
+}
+
+a.red { 
+	color: #DE4E71; 
+}
+
+
+a.red:hover{
+	background-color:#DE4E71; 
+}
+
+p{
+	margin: 0;
+	padding: 0;
+}
+.clear {
+	clear: both;
+	display: block;
+	height: 0px;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0px;
+}
+
+.user_session_new p{
+	margin-bottom: 10px;
+}
+
+.footer{
+	border-top: 1px solid;
+}
+
+div.field, div.actions {
+	margin-bottom: 10px;
+}
+
+#notice {
+	color: #006E1F;
+}
+
+.field_with_errors {
+	padding: 2px;
+	background-color: #BB0000;
+	display: table;
+}
+
+#error_explanation {
+	border: 2px solid #BB0000;
+	padding: 7px;
+	padding-bottom: 0;
+	margin-bottom: 20px;
+	background-color: #fff;
+}
+
+#error_explanation h2 {
+	color: #fff;  
+	text-align: left;
+	font-size: 14px;  
+	padding: 5px 5px 5px 15px;
+	margin: -7px;
+	margin-bottom: 0px;
+	background-color: #BB0000;
+}
+
+#error_explanation ul li {
+	list-style: none;
+}

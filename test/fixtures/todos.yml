@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  description: MyString
+  estimation: 1
+  due_date: 2011-02-04 16:09:14
+  completed: false
+  list: 
+
+two:
+  description: MyString
+  estimation: 1
+  due_date: 2011-02-04 16:09:14
+  completed: false
+  list: 
