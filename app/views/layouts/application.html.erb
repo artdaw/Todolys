@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Todolys - <%= yield :title %></title>
-	<%= stylesheet_link_tag "reset" %>
-	<%= stylesheet_link_tag "text" %>
-	<%= stylesheet_link_tag "960" %>
-	<%= stylesheet_link_tag "application" %>
-
-	<%= javascript_include_tag :defaults %>
-	<%= csrf_meta_tag %>
+  <title>Todolys - <%= yield :title %></title>
+  <meta http-equiv="X-UA-Compatible" content="IE=9" />
+  <%= stylesheet_link_tag "reset" %>
+  <%= stylesheet_link_tag "text" %>
+  <%= stylesheet_link_tag "960" %>
+  <%= stylesheet_link_tag "application" %>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
 </head>
 <body>
-	<div class="container_12">
-		<div class="grid_3">
-			<%= link_to "Logo", root_path %>
-		</div>
-		<div class="grid_9">  
-			<% if current_user %>  
-			<%= link_to "Edit @" + current_user.username , edit_user_path(:current) %>  
-			<%= link_to "Logout", logout_path %>  
-			<% else %>  
-			<%= link_to "log into you @account", login_path %>  
-			<% end %> 
-		</div>
-	</div>
-	<div class="container_12">
-		<p id="notice" class="grid_12"><%= notice %></p>	
-		<%= yield %>
-	</div>
-	<div class="container_12">
-		<div class="grid_2 prefix_10 footer">
-			&copy; Todolys 2010
-		</div>
-	</div>
+
+<ul class="nav container_12">
+  <!--li class="slogan">
+    The simplest ever todo application
+  </li-->
+  <li class="slogan">
+    <a href="http://artdaw.livejournal.com/tag/todolys">Creator blog</a>
+  </li>
+  <li class="slogan">
+    <a href="http://twitter.com/todolys">Twitter</a>
+  </li>
+  <% if current_user %>
+      <li>
+        <%= link_to "Edit @" + current_user.username, edit_user_path(:current) %>
+      </li>
+      <li>
+        <%= link_to "Logout", logout_path %>
+      </li>
+  <% else %>
+      <li>
+        <%= link_to "Sign in", login_path %>
+      </li>
+  <% end %>
+</ul>
+<div class="container_12 logo">
+  <%= link_to image_tag("logo2.png"), root_path %>
+</div>
+<div class="container_12">
+  <%= yield %>
+</div>
+<div class="container_12">
+  <div class="grid_12 footer">
+    Copyright&copy; 2010 Todolys. All rights reserved.
+  </div>
 </div>
 </body>
 </html>

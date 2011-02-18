@@ -1,6 +1,14 @@
-<h1>Editing list</h1>
+<h3>Change the world:</h3>
+<h1>Start editing <%=  @list.name %> list</h1>
 
-<%= render 'form' %>
+<%= form_for @list do |f| %>
 
-<%= link_to 'Show', @list %> |
-<%= link_to 'Back', lists_path %>
+    <p>Enter name of your list (Ex.: Home)</p>
+    <div class="field new_list_field">
+      <%= f.text_field :name, {:class => 'smart_input'} %>
+      <%= f.submit raw('&#8629;'), {:class => "submit_button"} %>
+    </div>
+<% end %>
+
+<%= link_to 'Cancel', lists_path %> or
+<%= link_to 'Destroy', @list, :confirm => 'Are you sure?', :method => :delete, :class => 'red' %>

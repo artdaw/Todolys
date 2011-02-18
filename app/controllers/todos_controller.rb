@@ -18,7 +18,7 @@ class TodosController < ApplicationController
         format.html { redirect_to list_path(@list) }
         format.xml  { head :ok }
       else
-        format.html { render :controller => "list", :action => "index" }
+        format.html { render lists_path }
         format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
       end
     end

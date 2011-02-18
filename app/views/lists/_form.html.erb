@@ -1,10 +1,9 @@
-<%= form_for @list do |f| %>
-  
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %> or <%= link_to 'Cancel', lists_path, {:class => "button-cancel"} %>
-  </div>
+<%= form_for @list, :html => {:class => 'new_list grid_6 omega alpha'} do |f| %>
+<p class="grid_6 suffix_6 alpha">
+	<%= f.label :name, "Enter the name of your new list (Ex. Home):" %>
+	<%= f.text_field :name, {:class => 'wide_input'} %>
+</p>
+<p class="grid_4 suffix_10 alpha">
+	<%= f.submit 'Create list' %>  <!-- or <a id="cancel_create_list" href="javascript:void(0);" class="red">Cancel</a-->
+</p>
 <% end %>

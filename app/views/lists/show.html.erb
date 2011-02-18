@@ -1,19 +1,22 @@
-<p id="notice"><%= notice %></p>
-<p>
-	<%= @list.name %>
-</p>
+<h3>
+	Do your things or decline:
+</h3>
+<h1>
+	Enjoy check them off.
+</h1>
+  <%= link_to 'My lists', lists_path %> &larr; 
 
-<h2>Add your todo:</h2>
-	<%= render :partial => "todos/form" %>
+
+ <%= @list.name %>	
 
 
+	<%= link_to 'Edit', edit_list_path(@list) %> 
+	|
+	<%= link_to 'Destroy', @list, :confirm => 'Are you sure?', :method => :delete %>	
+
+
+<%= render :partial => "todos/form" %>
 
 <ul>
-	<%=	render :partial => "todos/form_inplace", :collection => @list.todos, :as => :todo %>
+  <%= render :partial => "todos/form_inplace", :collection => @list.todos, :as => :todo %>
 </ul>
-
-
-
-
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>

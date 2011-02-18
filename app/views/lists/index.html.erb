@@ -1,23 +1,26 @@
-<h1>Listing lists</h1>
+<% content_for :title, "My lists" %>
+<h2 class="grid_2 alpha omega">My lists</h2>
+	<!--a class="grid_10 alpha omega"  id="create_list_link" href="javascript:void(0);">Create new list</a-->	
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @lists.each do |list| %>
-  <tr>
-    <td><%= list.name %></td>
-    <td><%= link_to 'Show', list %></td>
-    <td><%= link_to 'Edit', edit_list_path(list) %></td>
-    <td><%= link_to 'Destroy', list, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<div class="clear"></div>
+<% if @list.errors.any? %>
+    <div class="grid_6 prefix_3 suffix_3">
+      <div id="error_explanation">
+        <h2>There are <%= pluralize(@list.errors.count, "error") %>:</h2>
+
+        <ul>
+          <% @list.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
 <% end %>
-</table>
 
-<br />
 
-<%= link_to raw("Create new list &rarr;"), new_list_path %>
+<%= render 'form' %>
+
+<ul class="lists grid_12 alpha omega">
+  <%= render :partial => "list", :collection => @lists, :as => :list %>
+</ul>

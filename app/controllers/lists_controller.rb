@@ -2,10 +2,10 @@ class ListsController < ApplicationController
   before_filter :require_user
 
   def index
-    @lists = User.find(current_user.id).lists
-
+    @lists = User.find(current_user.id).lists.order("created_at DESC")
+    @list = List.new
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.xml  { render :xml => @lists }
     end
   end
@@ -56,10 +56,10 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
-        format.html { redirect_to(@list, :notice => "\"#{@list.name}\" list was successfully created.") }
-        format.xml  { render :xml => @list, :status => :created, :location => @list }
+        format.html { redirect_to @list }
+        format.xml  { render :xml => lists_path, :status => :created, :location => @list }
       else
-        format.html { render :action => "new" }
+        format.html { redirect_to lists_path }
         format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
       end
     end
@@ -70,7 +70,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.update_attributes(params[:list])
-        format.html { redirect_to(@list, :notice => "\"#{@list.name}\" list was successfully updated.") }
+        format.html { redirect_to(lists_path, :notice => "\"#{@list.name}\" list was successfully updated.") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -1,36 +1,34 @@
-<% form_for @user do |form| %>  
+<% if @user.errors.any? %>
+    <div class="grid_6 prefix_3 suffix_3">
+      <div id="error_explanation">
+        <h2>There are <%= pluralize(@user.errors.count, "error") %>:</h2>
 
-	<% if @user.errors.any? %>
-	<div id="error_explanation">
-		<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-		<ul>
-			<% @user.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-			<% end %>
-		</ul>
-	</div>
-	<% end %>
-
-	<ol class="formList">  
-		<li>  
-			<%= form.label :username, "Username" %>  
-			<%= form.text_field :username %>  
-		</li>  
-		<li>  
-			<%= form.label :email, "Email" %>  
-			<%= form.text_field :email %>  
-		</li>  
-		<li>  
-			<%= form.label :password, "Password" %>  
-			<%= form.password_field :password %>  
-		</li>  
-		<li>  
-			<%= form.label :password_confirmation, "Password confirmation" %>  
-			<%= form.password_field :password_confirmation %>  
-		</li>  
-		<li>  
-			<%= form.submit "Submit" %>  
-		</li>  
-	</ol>  
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+<% end %>
+<% form_for @user do |form| %>
+    <p class="grid_6 prefix_3">
+      <%= form.label :username, "Enter your username (use only letters, numbers, spaces, and .-_@):" %>
+      <%= form.text_field :username %>
+    </p>
+    <p class="grid_6 prefix_3">
+      <%= form.label :email, "What's your email?" %>
+      <%= form.text_field :email %>
+    </p>
+    <p class="grid_6 prefix_3">
+      <%= form.label :password, "Pick a password:" %>
+      <%= form.password_field :password %>
+    </p>
+    <p class="grid_6 prefix_3">
+      <%= form.label :password_confirmation, "Enter this password again:" %>
+      <%= form.password_field :password_confirmation %>
+    </p>
+    <p class="grid_2 prefix_3 suffix_7">
+      <%= form.submit "Create" %>
+    </p>
 <% end %>
