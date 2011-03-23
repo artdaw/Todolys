@@ -1,2 +1,35 @@
 <% content_for :title, "Edit account" %>
-<%= render @user %>
+
+<% if @user.errors.any? %>
+    <div class="grid_6 prefix_3 suffix_3">
+      <div id="error_explanation">
+        <h2>There are <%= pluralize(@user.errors.count, "error") %>:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+<% end %>
+<%= form_for @user do |form| %>
+    <p class="grid_6 prefix_3">
+      <%= form.label :email, "What's your email?" %>
+      <%= form.text_field :email %>
+    </p>
+    <p class="grid_6 prefix_3">
+      <%= form.label :password, "Pick a new password:" %>
+      <%= form.password_field :password %>
+    </p>
+    <p class="grid_6 prefix_3">
+      <%= form.label :password_confirmation, "Enter this password again:" %>
+      <%= form.password_field :password_confirmation %>
+    </p>
+	<p class="grid_6 prefix_3">
+      <%= form.label :password_confirmation, "Enter old password:" %>
+      <%= form.password_field :old_password %>
+    </p>
+    <p class="grid_2 prefix_3 suffix_7">
+      <%= form.submit "Update" %>
+    </p>
+<% end %>

@@ -14,9 +14,6 @@
 <body>
 
 <ul class="nav container_12">
-  <!--li class="slogan">
-    The simplest ever todo application
-  </li-->
   <li class="slogan">
     <a href="http://artdaw.livejournal.com/tag/todolys">Creator blog</a>
   </li>
@@ -25,7 +22,7 @@
   </li>
   <% if current_user %>
       <li>
-        <%= link_to "Edit @" + current_user.username, edit_user_path(:current) %>
+        <%= link_to "Change email or password", edit_user_path(:current) %>
       </li>
       <li>
         <%= link_to "Logout", logout_path %>
@@ -44,7 +41,7 @@
 </div>
 <div class="container_12">
   <div class="grid_12 footer">
-    Copyright&copy; 2010 Todolys. All rights reserved.
+    Copyright &copy; 2011 Todolys. All rights reserved.
   </div>
 </div>
 </body>
