@@ -2,6 +2,7 @@ Todolys::Application.routes.draw do
 
   resources :users
   resources :user_sessions
+  resources :password_resets
 
   resources :todos
 

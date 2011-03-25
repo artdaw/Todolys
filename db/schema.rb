@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110323131311) do
+ActiveRecord::Schema.define(:version => 20110323192437) do
 
   create_table "lists", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,10 @@ ActiveRecord::Schema.define(:version => 20110323131311) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "perishable_token",  :default => "", :null => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
 
 end

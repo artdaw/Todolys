@@ -25,5 +25,5 @@ class UserSessionsController < ApplicationController
        format.html { redirect_to(root_url) }
        format.xml  { head :ok }
      end
-   end
+  end
 end

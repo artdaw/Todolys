@@ -1,5 +1,15 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
   hello: "Hello world"
+
+  reset_password:
+    subject: Password Reset Instructions for Todolys account
+    mail_text: "Hello %{email},
+
+           You recently requested a new password.  To reset your password, follow the link below:
+           %{perishable_token}
+           (If clicking on the link doesn't work, try copying and pasting it into your browser.)
+
+           If you did not reset your password, please disregard this message.
+
+           Thanks,
+           The Todolys Team"
