@@ -1,0 +1,9 @@
+ if (true == <%= @todo.completed %>) {
+    $('#<%= "todo_" + @todo.id.to_s %>').remove();
+    $('#completed_todos').prepend('<%= escape_javascript(render(:partial => 'todo_completed',:locals => { :todo => @todo })) %>');
+    $('#completed_todos li:first-child').effect('highlight', {}, 1500, function() {});
+} else {
+    $('#<%= "todo_" + @todo.id.to_s %>').remove();
+    $('#todos').prepend('<%= escape_javascript(render(:partial => 'todo',:locals => { :todo => @todo })) %>');
+    $('#todos li:first-child').effect('highlight', {}, 1500, function() {});
+}

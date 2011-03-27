@@ -1,8 +1,20 @@
-<li>
-	<p>
-<%= todo.description %>
-	</p>
-<p>
-  <%= link_to 'Complete', [todo.list, todo], :method => :update %>
-</p>
+<li id="<%= "todo_" + todo.id.to_s %>" class="grid_12">
+    <%= form_for todo, :remote => true do |f| %>
+        <div class="editable_todo grid_12 alpha omega">
+            <%= f.check_box 'completed', :class => 'submittable grid_1' %>
+            <span class="grid_8">
+                <%= todo.description %>
+            </span>
+            <span class="grid_2">
+                <%= todo.estimation %>
+            </span>
+        </div>
+        <div class="edit_area">
+            <%= f.text_field :description %>
+            <br/>
+            <%= f.text_field :estimation %>
+            <%= f.submit :class => 'submittable' %>
+            <%= link_to 'Cancel', 'javascript:void(0);', :class => 'cancelable' %>
+        </div>
+    <% end %>
 </li>

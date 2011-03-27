@@ -1,0 +1,3 @@
+$('#todos').prepend('<%= escape_javascript(render(:partial => @todo)) %>');
+$('#todos li:first-child').effect('highlight', {}, 1500, function(){} );
+$('#new_todo')[0].reset();

@@ -1,0 +1,8 @@
+<li id="<%= "todo_" + todo.id.to_s %>" class="grid_12">
+    <%= form_for todo, :remote => true do |f| %>
+        <%= f.check_box 'completed', :class => 'submittable grid_1' %>
+        <span class="grid_10">
+            <%= todo.description %>
+        </span>
+    <% end %>
+</li>

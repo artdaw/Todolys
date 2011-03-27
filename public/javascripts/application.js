@@ -13,20 +13,24 @@ $(document).ready(function() {
         return this;
     };
 
-$('#create_list_link').click(function(){
-    $('#new_list').css('display', 'block');
-    $('#create_list_link').hide();
-});
+    $('.submittable').live('click change', function() {
+        $(this).parents('form:first').submit();
+        return false;
+    });
 
+    $('.editable_todo').live('click', function(event) {
+        $(this).siblings('.edit_area').show();
+        $(this).hide();
+        return false;
+    });
 
-$('#cancel_create_list').click(function(){
-    $('#new_list').css('display', 'none');
-    $('#create_list_link').show();
-});
+    $('.cancelable').click(function() {
+        $(this).parent('.edit_area').parents('form:first')[0].reset();
+        $(this).parent('.edit_area').hide();
+        $(this).parent('.edit_area').siblings('.editable_todo').show();
+        return false;
+    });
 
-//    $('#new_list').submit(function() {
-//        $('#new_list').submitWithAjax();
-//    });
 });
 
 

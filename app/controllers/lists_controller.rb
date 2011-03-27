@@ -24,6 +24,8 @@ class ListsController < ApplicationController
       
     @list = lists[0]
     if !@list.nil?
+      @todos = @list.todos.where(:completed => false).order("created_at DESC")
+      @completed_todos = @list.todos.where(:completed => true).order("created_at DESC")
       respond_to do |format|
         format.html
         format.xml  { render :xml => @list }

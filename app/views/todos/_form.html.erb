@@ -1,13 +1,13 @@
-<%= form_for([@list, @list.todos.build]) do |f| %>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :estimation %><br />
-    <%= f.text_field :estimation %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= form_for [@list, @list.todos.build], :remote => true do |f| %>
+    <div class="field">
+        <%= f.label 'Create todo:' %>
+        <%= f.text_field :description %>
+
+        <br/>
+
+        <%= f.text_field :estimation %>
+    </div>
+    <div class="actions">
+        <%= f.submit :class => 'submittable' %>
+    </div>
 <% end %>

@@ -1,22 +1,26 @@
 <h3>
-	Do your things or decline:
+    Do your things or decline:
 </h3>
 <h1>
-	Enjoy check them off.
+    Enjoy check them off.
 </h1>
-  <%= link_to 'My lists', lists_path %> &larr; 
+<%= link_to 'My lists', lists_path %> &larr;
 
 
- <%= @list.name %>	
+<%= @list.name %>
 
 
-	<%= link_to 'Edit', edit_list_path(@list) %> 
-	|
-	<%= link_to 'Destroy', @list, :confirm => 'Are you sure?', :method => :delete %>	
+<%= link_to 'Edit', edit_list_path(@list) %>
+<%= link_to 'Destroy', @list, :confirm => 'Are you sure?', :method => :delete %>
 
 
 <%= render :partial => "todos/form" %>
 
-<ul>
-  <%= render :partial => "todos/form_inplace", :collection => @list.todos, :as => :todo %>
+<ul id="todos">
+    <%= render :partial => "todos/todo", :collection => @todos, :as => :todo %>
+</ul>
+
+<h4>Completed todos:</h4>
+<ul id="completed_todos">
+    <%= render :partial => "todos/todo_completed", :collection => @completed_todos, :as => :todo %>
 </ul>
